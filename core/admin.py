@@ -12,11 +12,11 @@ class ApplicantAdmin(UserAdmin):
     list_display = ['email', 'username']
 
     fieldsets = (
-        (None, {'fields': ('email', 'username', 'phone', 'address',)}),
+        (None, {'fields': ('email', 'username', 'phone', 'address', 'is_staff',)}),
     )
 
     add_fieldsets = (
-        (None, {'fields': ('email', 'username', 'phone', 'address', 'password1', 'password2',)}),
+        (None, {'fields': ('email', 'username', 'phone', 'address', 'password1', 'password2', 'is_staff',)}),
     )
 
     search_fields = ['email', 'username', 'phone', 'address']

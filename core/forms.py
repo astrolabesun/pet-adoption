@@ -5,7 +5,7 @@ from . import models
 class ApplicantCreationForm(UserCreationForm):
     class Meta:
         model = models.Applicant
-        fields = ('email', 'username', 'password', 'phone', 'address',)
+        fields = ('email', 'username', 'phone', 'address',)
 
 
 class ApplicantChangeForm(UserChangeForm):

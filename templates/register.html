@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="form-container">
+    {% if error %}
+        <div class="error-container">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Register!</button>
+    </form>
+    <div class="container">
+        <p>Already have an account? <a href="{% url 'login' %}">Sign In!</a></p>
+    </div>
+</div>
+{% endblock content %}

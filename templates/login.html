@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="form-container">
+    {% if error %}
+        <div class="error-container">
+            <p>{{ error }}</p>
+        </div>
+    {% endif %}
+    <form action="" method="post">
+        {% csrf_token %}
+        <label for="email">Email:</label>
+        <input type="email" name="email" id="email">
+        <label for="password">Password:</label>
+        <input type="password" name="password" id="password">
+        <button type="submit">Sign In!</button>
+    </form>
+    <div class="container">
+        <p>Don't have an account yet? <a href="{% url 'register' %}">Sign Up here!</a></p>
+    </div>
+</div>
+{% endblock content %}
