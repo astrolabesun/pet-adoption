@@ -55,3 +55,9 @@ def user_profile(request, pk):
     user = models.Applicant.objects.get(pk=pk)
     context = {'user': user}
     return render(request, 'user_profile.html', context)
+
+
+def pets_catalogue(request):
+    pets = models.Pet.objects.all()
+    context = {'pets': pets}
+    return render(request, 'pets.html', context)

@@ -11,7 +11,7 @@
         <nav class="navbar">
             <ul class="nav-ul">
                 <li class="nav-li"><a href="{% url 'home' %}">Home</a></li>
-                <li class="nav-li"><a href="#">Pets</a></li>
+                <li class="nav-li"><a href="{% url 'pets-catalogue' %}">Pets</a></li>
                 <li class="nav-li"><a href="#">About</a></li>
                 {% if user.is_authenticated %}
                     <li class="nav-li"><a href="{% url 'user-profile' user.pk %}">{{ user.username }}</a></li>

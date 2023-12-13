@@ -1,0 +1,12 @@
+{% extends 'main.html' %}
+{% block content %}
+{% for pet in pets %}
+    <!-- TODO: don't display animals that have already been adopted. -->
+    <div class="pet-container">
+        <div class="pet-img-container">
+            <img src="{{ pet.portrait.url }}" alt="{{ pet.name }} image" srcset="">
+        </div>
+        <h2>{{ pet.name }}</h2>
+    </div>
+{% endfor %}
+{% endblock content %}
