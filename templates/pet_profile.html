@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+
+    {% if pet.is_adopted %}
+        <div class="container">
+            <h1>I'm adopted! Please check out other pets in our catalogue!</h1>
+        </div>
+    {% endif %}
+
+    <div class="img-profile-container">
+        <img src="{{ pet.portrait.url }}" alt="{{ pet.name }}'s portrait.">
+    </div>
+
+    <div class="container">
+        <h2>{{ pet.name }}</h2>
+        <h3>About</h3>
+        <ul class="bio-ul">
+            <li class="bio-li">Species: {{ pet.animal_type }}</li>
+            <li class="bio-li">Age: {{ pet.age }}</li>
+            <li class="bio-li">Sex: {{ pet.sex }}</li>
+        </ul>
+        <h3>{{ pet.name }}'s Story:</h3>
+        <div class="biography-container">
+            {% if pet.biography %}
+                <p>{{ pet.biography }}</p>
+            {% else %}
+                <p>No biographical information was provided.</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock content %}

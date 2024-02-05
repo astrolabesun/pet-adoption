@@ -61,3 +61,8 @@ def pets_catalogue(request):
     pets = models.Pet.objects.all()
     context = {'pets': pets}
     return render(request, 'pets.html', context)
+
+def pet_profile(request, pk):
+    pet = models.Pet.objects.get(pk=pk)
+    context = {'pet': pet}
+    return render(request, 'pet_profile.html', context)
