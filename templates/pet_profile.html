@@ -28,6 +28,9 @@
                 <p>No biographical information was provided.</p>
             {% endif %}
         </div>
+        {% if user.is_authenticated and not pet.is_adopted %}
+            <button type="submit">Apply for Adoption</button>
+        {% endif %}
     </div>
 </div>
 {% endblock content %}
