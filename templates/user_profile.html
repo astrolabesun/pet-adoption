@@ -2,5 +2,7 @@
 {% block content %}
 <div class="container">
     <h1>Hello, {{ user.username }}!</h1>
+
+    <button type="submit"><a href="{% url 'user-adoption-applications' %}">View Applications</a></button>
 </div>
 {% endblock content %}

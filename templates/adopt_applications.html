@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <button type="submit"><a href="{% url 'user-profile' user.pk %}">Back to Profile</a></button>
+    {% if adoption_applications|length == 0 %}
+    <div class="no-applications-container">
+        <p>No applications submitted!</p>
+    </div>
+    {% endif %}
+    {% for adoption_application in adoption_applications %}
+        <div class="adopt-application-container">
+            <h2>Name: {{ adoption_application.pet.name }}</h2>
+            <h3>Status: {{ adoption_application.status }}</h3>
+            <h4>Submitted on: {{ adoption_application.created }}</h4>
+        </div>
+    {% endfor %}
+</div>
+{% endblock content %}
