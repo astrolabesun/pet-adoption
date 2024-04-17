@@ -9,5 +9,6 @@ urlpatterns = [
     path('profile/applications/', views.user_adoption_applications, name='user-adoption-applications'),
     path('logout/', views.logout_user, name='logout'),
     path('pets/', views.pets_catalogue, name='pets-catalogue'),
-    path('pets/<int:pk>/profile/', views.pet_profile, name='pet-profile')
+    path('pets/<int:pk>/profile/', views.pet_profile, name='pet-profile'),
+    path('pets/<int:pk>/apply/', views.adoption_application, name='pet-apply')
 ]

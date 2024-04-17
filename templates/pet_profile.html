@@ -29,7 +29,7 @@
             {% endif %}
         </div>
         {% if user.is_authenticated and not pet.is_adopted %}
-            <button type="submit">Apply for Adoption</button>
+            <button type="submit"><a href="{% url 'pet-apply' pet.pk %}">Apply for Adoption</a></button>
         {% endif %}
     </div>
 </div>

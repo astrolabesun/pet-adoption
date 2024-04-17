@@ -75,15 +75,18 @@ def pet_profile(request, pk):
     return render(request, 'pet_profile.html', context)
 
 
-# @login_required(login_url='login')
-# def application(request, pk):
-#     pet = models.Pet.objects.get(pk=pk)
-#     candidate = models.Applicant.objects.get(pk=request.user.pk)
-#     form = forms.AdoptionApplicationForm()
-#     context = {}
-#     if request.method == 'POST':
-#         form = forms.AdoptionApplicationForm(request.POST)
-#         context['form'] = form
-#         if form.is_valid():
-#             form.save()
-#             return redirect(request, 'user-adoption-applications')
+@login_required(login_url='login')
+def adoption_application(request, pk):
+    pet = models.Pet.objects.get(pk=pk)
+    form = forms.AdoptionApplicationForm(initial={'applicant': request.user, 'pet': pet})
+    context = {'pet': pet}
+    if request.method == 'POST':
+        form = forms.AdoptionApplicationForm(data={'applicant': request.user, 'pet': pet})
+        context['form'] = form
+        if form.is_valid():
+            form.save()
+            return redirect('user-adoption-applications')
+        else:
+            context['error'] = 'Please fill out this form correctly.'
+    context['form'] = form
+    return render(request, 'apply.html', context)

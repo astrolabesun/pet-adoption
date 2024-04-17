@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+{% block content %}
+<div class="container">
+    <button type="submit"><a href="{% url 'pet-profile' pet.pk %}">Go Back to Pet Profile</a></button>
+    <form action="" method="post">
+        {% csrf_token %}
+        {% for field in form %}
+            <div class="application-field">
+                {{ field.label_tag }}  {{ field.initial }}
+            </div>
+        {% endfor %}
+        <h5>Are you Sure?</h5>
+        <p>
+            By hitting "Yes, Apply!", you agree that you will be contacted with your account email. You
+            also agree to take part in the screening process that will determine your fit with the named
+            pet in this application. Should you decline to take part in any part of the screening process,
+            your application will be withdrawn and you will no longer be considered in the adoption process.
+        </p>
+        <button type="submit">Yes, Apply!</button>
+    </form>
+</div>
+{% endblock content %}

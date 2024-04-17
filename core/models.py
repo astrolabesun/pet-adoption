@@ -80,11 +80,11 @@ class Pet(TimeStampedModel, models.Model):
 
 
 class AdoptionApplication(TimeStampedModel, models.Model):
-    UNDER_REVIEW = 'U'
-    INTERVIEW = 'I'
-    APPROVED = 'A'
-    DENIED = 'D'
-    WITHDRAWN = 'W'
+    UNDER_REVIEW = 'Under Review'
+    INTERVIEW = 'Interview'
+    APPROVED = 'Approved'
+    DENIED = 'Denied'
+    WITHDRAWN = 'Withdrawn'
     APPLICATION_STATUS = (
         (UNDER_REVIEW, 'Under Review'),
         (INTERVIEW, 'Interview'),
