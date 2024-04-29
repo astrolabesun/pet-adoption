@@ -12,6 +12,7 @@
             <h2>Name: {{ adoption_application.pet.name }}</h2>
             <h3>Status: {{ adoption_application.status }}</h3>
             <h4>Submitted on: {{ adoption_application.created }}</h4>
+            <button type="submit"><a href="{% url 'withdraw-application' adoption_application.pk %}">Withdraw</a></button>
         </div>
     {% endfor %}
 </div>

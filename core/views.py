@@ -69,6 +69,7 @@ def pets_catalogue(request):
     context = {'pets': pets}
     return render(request, 'pets.html', context)
 
+
 def pet_profile(request, pk):
     pet = models.Pet.objects.get(pk=pk)
     context = {'pet': pet}
@@ -90,3 +91,10 @@ def adoption_application(request, pk):
             context['error'] = 'Please fill out this form correctly.'
     context['form'] = form
     return render(request, 'apply.html', context)
+
+
+@login_required(login_url='login')
+def withdraw_application(request, pk):
+    adoption_application = models.AdoptionApplication.objects.get(pk=pk)
+    adoption_application.delete()
+    return redirect('user-adoption-applications')
