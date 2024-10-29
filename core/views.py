@@ -96,5 +96,6 @@ def adoption_application(request, pk):
 @login_required(login_url='login')
 def withdraw_application(request, pk):
     adoption_application = models.AdoptionApplication.objects.get(pk=pk)
-    adoption_application.delete()
+    adoption_application.status = adoption_application.WITHDRAWN
+    adoption_application.save()
     return redirect('user-adoption-applications')
